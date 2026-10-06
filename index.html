@@ -4,7 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Recursos · Gabriel Victorica</title>
-    <meta http-equiv="refresh" content="0; url=/pilar/" />
+    <script>
+      (function () {
+        var guias = ["pilar", "lista", "casa"];
+        var pedida = location.pathname.replace(/^\/+|\/+$/g, "").split("/")[0];
+        var destino = guias.indexOf(pedida) >= 0 ? pedida : "pilar";
+        if (location.pathname !== "/" + destino + "/") location.replace("/" + destino + "/" + location.search); // sin vueltas infinitas
+      })();
+    </script>
+    <noscript><meta http-equiv="refresh" content="0; url=/pilar/" /></noscript>
   </head>
   <body><a href="/pilar/">Ir a la guía</a></body>
 </html>
